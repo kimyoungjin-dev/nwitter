@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AppRouter from "components/Router";
-import firebase from "../firebase";
+import fbase from "fbase";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
