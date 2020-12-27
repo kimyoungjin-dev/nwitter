@@ -16,7 +16,6 @@ const Auth = () => {
   const onSubmit = (event) => {
     event.preventDefault();
   };
-
   return (
     <div>
       <>
@@ -46,4 +45,5 @@ const Auth = () => {
     </div>
   );
 };
+
 export default Auth;
