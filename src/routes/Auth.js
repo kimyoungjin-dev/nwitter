@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-
 const Auth = () => {
-  const [email, setEmail] = useState(); //기본값은 비어있다.
-  const [password, setpassword] = useState(); //기본값은 비어있다.
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const onChange = (event) => {
     const {
       target: { name, value },
     } = event;
+
     if (name === "email") {
       setEmail(value);
-    } else if ((name = "password")) {
-      setpassword(value);
+    } else if (name === "password") {
+      setPassword(value);
     }
   };
   const onSubmit = (event) => {
@@ -18,26 +18,25 @@ const Auth = () => {
   };
   return (
     <div>
-      <>
-        <form onSubmit={onSubmit}></form>
+      <form onSubmit={onSubmit}>
         <input
           name="email"
-          type="text"
-          placeholder="email"
+          type="email"
+          placeholder="Email"
           required
           value={email}
-          onChaege={onChange}
+          onChange={onChange}
         />
         <input
           name="password"
           type="password"
-          placeholder="password"
+          placeholder="Password"
           required
           value={password}
-          onChaege={onChange} ////const로 선언한 onChange event값을 부여한다.
+          onChange={onChange}
         />
-        <input type="submit" placeholder="Log in" />
-      </>
+        <input type="submit" value="Log In" />
+      </form>
       <div>
         <button>Continue with Google</button>
         <button>Continue with Github</button>
@@ -45,5 +44,4 @@ const Auth = () => {
     </div>
   );
 };
-
 export default Auth;
