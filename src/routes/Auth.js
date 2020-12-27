@@ -4,7 +4,14 @@ const Auth = () => {
   const [email, setEmail] = useState(); //기본값은 비어있다.
   const [password, setpassword] = useState(); //기본값은 비어있다.
   const onChange = (event) => {
-    console.log(event.target.name);
+    const {
+      target: { name, value },
+    } = event;
+    if (name === "email") {
+      setEmail(value);
+    } else if ((name = "password")) {
+      setpassword(value);
+    }
   };
   const onSubmit = (event) => {
     event.preventDefault();
@@ -20,7 +27,7 @@ const Auth = () => {
           placeholder="email"
           required
           value={email}
-          onChaege={onChange} //const로 선언한 onChange event값을 부여한다.
+          onChaege={onChange}
         />
         <input
           name="password"
