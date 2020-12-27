@@ -25,9 +25,3 @@ function App() {
 }
 
 export default App;
-
-//console.log(authService.currentUser);
-
-//setInterval(() => {
-//console.log(authService.currentUser);
-//}, 2000);
