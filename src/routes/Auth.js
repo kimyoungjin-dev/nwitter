@@ -14,7 +14,6 @@ const Auth = () => {
     <div>
       <>
         <form onSubmit={onSubmit}></form>
-        부여한다.
         <input
           name="email"
           type="text"
