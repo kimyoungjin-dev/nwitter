@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { dbService, storageService } from "fbase";
 import Nweet from "components/Nweet";
-
 const Home = ({ userObj }) => {
   const [nweet, setNweet] = useState("");
   const [nweets, setNweets] = useState([]);
-  const [attachment, setAttachment] = useState("");
-
+  const [attachment, setAttachment] = useState();
   useEffect(() => {
     dbService.collection("nweets").onSnapshot((snapshot) => {
       const nweetArray = snapshot.docs.map((doc) => ({
@@ -17,7 +15,6 @@ const Home = ({ userObj }) => {
       setNweets(nweetArray);
     });
   }, []);
-
   const onSubmit = async (event) => {
     event.preventDefault();
     let attachmentUrl = "";
@@ -66,7 +63,7 @@ const Home = ({ userObj }) => {
           value={nweet}
           onChange={onChange}
           type="text"
-          placeholder="what`s on your mind"
+          placeholder="What's on your mind?"
           maxLength={120}
         />
         <input type="file" accept="image/*" onChange={onFileChange} />
