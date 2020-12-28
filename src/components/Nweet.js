@@ -6,9 +6,8 @@ const Nweet = ({ nweetObj, isOwner }) => {
   const [newNweet, setNewNweet] = useState(nweetObj.text);
   const onDeleteClick = async () => {
     const ok = window.confirm("Are you sure you want to delete this nweet?");
-    console.log(ok);
     if (ok) {
-      await dbService.doc(`nweet/${nweetObj.id}`).delete();
+      await dbService.doc(`nweets/${nweetObj.id}`).delete();
     }
   };
   const toggleEditing = () => setEditing((prev) => !prev);
