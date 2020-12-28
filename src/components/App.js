@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AppRouter from "components/Router";
 import { authService } from "fbase";
-
 function App() {
   const [init, setInit] = useState(false);
   const [userObj, setUserObj] = useState(null);
@@ -10,9 +9,11 @@ function App() {
       if (user) {
         setUserObj({
           displayName: user.displayName,
-          uid: user.id,
+          uid: user.uid,
           updateProfile: (args) => user.updateProfile(args),
         });
+      } else {
+        setUserObj(null);
       }
       setInit(true);
     });
@@ -21,7 +22,7 @@ function App() {
     const user = authService.currentUser;
     setUserObj({
       displayName: user.displayName,
-      uid: user.id,
+      uid: user.uid,
       updateProfile: (args) => user.updateProfile(args),
     });
   };
@@ -29,14 +30,13 @@ function App() {
     <>
       {init ? (
         <AppRouter
-          isLoggedIn={Boolean(userObj)}
           refreshUser={refreshUser}
+          isLoggedIn={Boolean(userObj)}
           userObj={userObj}
         />
       ) : (
         "Initializing..."
       )}
-      <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
     </>
   );
 }
