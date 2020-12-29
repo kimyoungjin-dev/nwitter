@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { authService } from "fbase";
 
-const inputstyle = {};
-
 const AuthForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -64,7 +62,7 @@ const AuthForm = () => {
         />
         {error && <span className="quthError"></span>}
       </form>
-      <span onClick={toggleAccount} className="quthSwitch">
+      <span onClick={toggleAccount} className="authSwitch">
         {newAccount ? "Sign In" : "Create Account"}
       </span>
     </>
