@@ -23,7 +23,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -45,5 +44,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://kimyoungjin.github.io/nwitter"
+  "homepage": "https://kimyoungjin-dev.github.io/nwitter"
 }
