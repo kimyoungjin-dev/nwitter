@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { authService } from "fbase";
 import { useHistory } from "react-router-dom";
-
 export default ({ refreshUser, userObj }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
@@ -9,7 +8,6 @@ export default ({ refreshUser, userObj }) => {
     authService.signOut();
     history.push("/");
   };
-
   const onChange = (event) => {
     const {
       target: { value },
@@ -25,26 +23,27 @@ export default ({ refreshUser, userObj }) => {
       refreshUser();
     }
   };
-
   return (
-    <div className="profileContainer">
-      <form className="profileForm" onSubmit={onSubmit}>
+    <div className="container">
+      <form onSubmit={onSubmit} className="profileForm">
         <input
-          className="formInput"
           onChange={onChange}
           type="text"
           autoFocus
           placeholder="Display name"
           value={newDisplayName}
+          className="formInput"
         />
         <input
-          className="formBtn"
-          style={{ marginTop: 10 }}
           type="submit"
           value="Update Profile"
+          className="formBtn"
+          style={{
+            marginTop: 10,
+          }}
         />
       </form>
-      <span className="formBtn logout" onClick={onLogOutClick}>
+      <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
         Log Out
       </span>
     </div>
