@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { dbService, storageService } from "fbase";
 import Nweet from "components/Nweet";
 import NweetFactory from "components/NweetFactory";
-
 const Home = ({ userObj }) => {
   const [nweets, setNweets] = useState([]);
   useEffect(() => {
@@ -14,7 +13,6 @@ const Home = ({ userObj }) => {
       setNweets(nweetArray);
     });
   }, []);
-
   return (
     <div className="container">
       <NweetFactory userObj={userObj} />
