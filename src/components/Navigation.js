@@ -29,7 +29,7 @@ const Navigation = ({ userObj }) => (
             marginLeft: 0,
           }}
         >
-          <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="2x" />
+          <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="3x" />
           <span>Home</span>
         </Link>
       </li>
@@ -43,10 +43,10 @@ const Navigation = ({ userObj }) => (
             flexDirection: "column",
             alignItems: "center",
             fontSize: 10,
+            color: "black",
           }}
         >
-          {" "}
-          <FontAwesomeIcon icon={faUser} color={"#04AAFF"} size="2x" />
+          <FontAwesomeIcon icon={faUser} color={"#04AAFF"} size="3x" />
           <span style={{ marginTop: 10 }}>
             {userObj.displayName ? `${userObj.displayName}` : "Profile"}
           </span>
