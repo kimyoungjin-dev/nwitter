@@ -53,13 +53,16 @@ const NweetFactory = ({ userObj }) => {
   const onClearAttachment = () => setAttachment("");
   return (
     <form className="factoryForm" onSubmit={onSubmit}>
+      <span className="factoryFormName">
+        {userObj.displayName}님 오늘 하루는 어떠셨나요?
+      </span>
       <div className="factoryInput__container">
         <input //nweet입력칸
           className="factoryInput__input"
           value={nweet}
           onChange={onChange}
           type="text"
-          placeholder="What's on your mind?"
+          placeholder="트윗을 작성해보세요"
           maxLength={120}
         />
         <input className="factoryInput__arrow" type="submit" value="&rarr;" />
