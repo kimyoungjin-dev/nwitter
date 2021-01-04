@@ -26,12 +26,15 @@ export default ({ refreshUser, userObj }) => {
   return (
     <div className="container">
       <form onSubmit={onSubmit} className="profileForm">
+        <span className="profileName">
+          {userObj.displayName}님 오늘도 행복하신가요?
+        </span>
         <input
           onChange={onChange}
           type="text"
           autoFocus
           placeholder="Display name"
-          value={newDisplayName}
+          value="닉네임변경"
           className="formInput"
         />
         <input
