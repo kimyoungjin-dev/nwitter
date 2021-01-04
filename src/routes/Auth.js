@@ -23,6 +23,7 @@ const Auth = () => {
   };
   return (
     <div className="authContainer">
+      <span className="authMainLogoTitle">Twitter</span>
       <FontAwesomeIcon
         icon={faTwitter}
         color={"#04AAFF"}
