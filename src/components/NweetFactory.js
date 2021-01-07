@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const NweetFactory = ({ userObj }) => {
+  console.log(userObj);
   const [nweet, setNweet] = useState("");
   const [attachment, setAttachment] = useState("");
   const onSubmit = async (event) => {
@@ -65,7 +66,7 @@ const NweetFactory = ({ userObj }) => {
           placeholder="트윗을 작성해보세요"
           maxLength={120}
         />
-        <input className="factoryInput__arrow" type="submit" value="&rarr;" />
+        <input className="factoryInput__arrow" type="submit" value="확인" />
       </div>
       <label for="attach-file" className="factoryInput__label">
         <span>Add photos</span>
@@ -78,9 +79,11 @@ const NweetFactory = ({ userObj }) => {
         onChange={onFileChange}
         style={{ opacity: 0 }}
       />
+
       {attachment && ( //미리 보기 사진
         <div className="factoryForm__attachment">
           <img src={attachment} style={{ backgroundImage: attachment }} />
+
           <div className="factoryForm__clear" onClick={onClearAttachment}>
             <span>Remove</span>
             <FontAwesomeIcon icon={faTimes} />

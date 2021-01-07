@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import AppRouter from "components/Router";
 import { authService } from "fbase";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faGoogle,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
+
 function App() {
   const [init, setInit] = useState(false);
   const [userObj, setUserObj] = useState(null);
@@ -35,7 +42,14 @@ function App() {
           userObj={userObj}
         />
       ) : (
-        "Initializing..."
+        <div className="Loading_message">
+          <FontAwesomeIcon
+            icon={faTwitter}
+            color={"#04AAFF"}
+            size="3x"
+            style={{ marginBottom: 30 }}
+          />
+        </div>
       )}
     </>
   );

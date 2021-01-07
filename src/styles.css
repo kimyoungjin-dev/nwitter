@@ -18,6 +18,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
+  background-color: white;
 }
 
 button {
@@ -70,6 +71,17 @@ form {
 .cancelBtn {
   cursor: pointer;
   background-color: tomato;
+}
+
+/*App.js*/
+.Loading_message {
+  width: 100vw;
+  height: 100vh;
+  background-color: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 120px;
 }
 
 /* Profile Page */
@@ -225,19 +237,46 @@ form {
 /* Auth */
 
 .authContainer {
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   justify-content: center;
   align-items: center;
 }
 
 .authMainLogoTitle {
-  font-weight: 500;
+  margin-top: 25px;
+  margin-left: 60px;
+  position: absolute;
+  top: 5px;
+  left: 0;
+
   margin-bottom: 15px;
-  color: black;
+  color: white;
+  font-size: 14px;
 }
 
+.auth-faTwitter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.help-title {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  margin-right: 20px;
+  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+}
+.help-title span:first-child {
+  margin-right: 10px;
+}
 .authBtns {
   display: flex;
   justify-content: space-around;
@@ -248,26 +287,43 @@ form {
 .authBtn {
   margin: 0px 10px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 3px;
   border: none;
   padding: 13px 0px;
   font-size: 12px;
   text-align: center;
   width: 150px;
-  background: rgba(0, 0, 0, 0.2);
+  background: white;
   cursor: pointer;
 }
-
-/* AuthForm */
-
-.authInput {
-  max-width: 320px;
-  width: 100%;
+.mobile-check {
+  border-top: 1px solid black;
+  margin-top: 50px;
+  color: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 10px;
-  border-radius: 30px;
-  background-color: rgba(255, 255, 255, 1);
-  margin-bottom: 10px;
   font-size: 12px;
+}
+
+.auth-forgetPassword {
+  border-bottom: 1px, solid black;
+  margin-top: 50px;
+  color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+/* AuthForm (로그인화면)*/
+.auth-container {
+  text-align: center;
+}
+.authInput {
+  text-align: start;
+  max-width: 320px;
+  width: 80%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 1);
+  margin-bottom: 5px;
+  font-size: 14px;
   color: black;
 }
 
@@ -275,11 +331,16 @@ form {
   text-align: center;
   background: #04aaff;
   color: white;
-  margin-top: 18px;
   cursor: pointer;
+  margin-top: 8px;
 }
 
-.authError {
+.authSubmit:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.error_message {
+  margin-top: 10px;
   color: tomato;
   text-align: center;
   font-weight: 500;
@@ -287,11 +348,29 @@ form {
 }
 
 .authSwitch {
-  color: #04aaff;
+  color: white;
   cursor: pointer;
   margin-top: 10px;
   margin-bottom: 50px;
   display: block;
   font-size: 12px;
   text-decoration: underline;
+}
+
+.no-mobile {
+  background-color: antiquewhite;
+  position: absolute;
+  z-index: 99;
+  height: 100vh;
+  width: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  top: 0;
+}
+@media screen and (max-width: 800px) {
+  .no-mobile {
+    display: none;
+  }
 }

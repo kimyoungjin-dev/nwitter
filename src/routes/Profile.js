@@ -49,6 +49,9 @@ export default ({ refreshUser, userObj }) => {
       <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
         Log Out
       </span>
+      <div className="no-mobile">
+        <span>크기를 줄이거나 핸드폰으로 접속하세요</span>
+      </div>{" "}
     </div>
   );
 };

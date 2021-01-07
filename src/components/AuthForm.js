@@ -36,12 +36,12 @@ const AuthForm = () => {
   const toggleAccount = () => setNewAccount((prev) => !prev);
   return (
     <>
-      <form onSubmit={onSubmit} className="container">
+      <form className="auth-container" onSubmit={onSubmit}>
         <input
           className="authInput"
           name="email"
           type="email"
-          placeholder="Email"
+          placeholder="트위터계정 (이메일)"
           required
           value={email}
           onChange={onChange}
@@ -50,7 +50,7 @@ const AuthForm = () => {
           className="authInput"
           name="password"
           type="password"
-          placeholder="Password"
+          placeholder="비밀번호"
           required
           value={password}
           onChange={onChange}
@@ -60,7 +60,8 @@ const AuthForm = () => {
           type="submit"
           value={newAccount ? "Create Account" : "Sign In"}
         />
-        {error && <span className="quthError"></span>}
+        <div className="error_message">{error}</div>
+        <span className="authError"></span>
       </form>
       <span onClick={toggleAccount} className="authSwitch">
         {newAccount ? "Sign In" : "Create Account"}
