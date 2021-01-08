@@ -1,6 +1,5 @@
 .profile-container {
   border: 1px solid rgba(0, 0, 0, 0.1);
-
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -17,8 +16,9 @@
   width: 90px;
   height: 90px;
   border-radius: 100%;
-  left: -20px;
-  top: -20px;
+  left: 0px;
+  top: 10px;
+  z-index: 1;
 }
 .profile-profile {
   text-align: start;
@@ -27,16 +27,23 @@
   margin-left: -20px;
 }
 .profileModify {
+  width: 100%;
   text-align: end;
-  color: rgba(0, 0, 0, 0.5);
   font-weight: 600;
 }
+
 .profileModify span {
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  border: 1px solid rgb(116, 202, 254);
   border-radius: 10%;
   padding: 5px;
+  color: rgb(116, 202, 254);
+}
+
+.profile-centerTileBox {
+  width: 100%;
 }
 .profile-centerTile {
+  width: 100%;
   margin-top: 20px;
   height: 30px;
   display: flex;
@@ -44,6 +51,7 @@
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+/*프로필 변경화면*/
 .profile-mainscreen {
   margin-top: 40px;
   height: 200px;
@@ -51,18 +59,19 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/*프로필 변경화면*/
 .profileForm {
-  height: 100px;
+  height: 120px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .profileInput {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   width: 200px;
   height: 50px;
+  margin-left: 15px;
 }
 .profileInput2 {
   width: 60px;
@@ -95,11 +104,12 @@
   align-items: flex-end;
 }
 .logOut {
-  margin-right: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  margin-right: 1px;
   border-radius: 10px;
   padding: 5px;
-  margin-bottom: 18px;
+  margin-bottom: 40px;
+  color: white;
+  background-color: rgb(116, 202, 254);
 }
 .profile-bottomTitle {
   font-size: 20px;

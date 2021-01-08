@@ -4,10 +4,11 @@ import { useHistory } from "react-router-dom";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-<i class="far fa-user-circle"></i>;
+
 export default ({ refreshUser, userObj }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
+  const [newPhotoURL, setNewPhotoURL] = useState(userObj.photoURL);
   const onLogOutClick = () => {
     authService.signOut();
     history.push("/");
@@ -26,12 +27,18 @@ export default ({ refreshUser, userObj }) => {
       });
       refreshUser();
     }
+    if (userObj.photoURL !== newPhotoURL) {
+      await userObj.updateProfile({
+        photoURL: newPhotoURL,
+      });
+      refreshUser();
+    }
   };
   return (
     <div className="container profile-container">
       <img className="profilePhoto" src={userObj.photoURL} />
       <div className="profileModify">
-        <span>프로필 수정</span>
+        <span>팔로우</span>
       </div>
       <div className="profile-mainscreen">
         <form className="profileForm" onSubmit={onSubmit}>
@@ -40,8 +47,7 @@ export default ({ refreshUser, userObj }) => {
             onChange={onChange}
             type="text"
             autoFocus
-            placeholder="Display name"
-            value="이름을 변경하시겠습니까?"
+            value={newDisplayName}
           />
           <input className="profileInput2" type="submit" value="이름변경" />
         </form>
@@ -58,7 +64,7 @@ export default ({ refreshUser, userObj }) => {
         </div>
       </div>
 
-      <div>
+      <div className="profile-centerTileBox">
         <div className="profile-centerTile">
           <span>트윗</span>
           <span>트윗과 답글</span>

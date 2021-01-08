@@ -67,22 +67,6 @@ const NweetFactory = ({ userObj }) => {
   return (
     <>
       <form className="factoryForm" onSubmit={onSubmit}>
-        <nav className="nweet-nav">
-          <ul className="nweet-ul">
-            <li>
-              <FontAwesomeIcon icon={faHome} />
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faEnvelopeSquare} />
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faShopware} />
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faUser} />
-            </li>
-          </ul>
-        </nav>
         <div className="factoryInput__container">
           <input //nweet입력칸
             className="factoryInput__input"
@@ -99,11 +83,6 @@ const NweetFactory = ({ userObj }) => {
             <FontAwesomeIcon icon={faPlus} />
           </label>
           <input type="submit" value="트윗" />
-        </div>
-
-        <div className="nweetList">
-          <FontAwesomeIcon icon={faListAlt} />
-          <span className="nweet-Tweet-list">내가 작성한 트윗목록</span>
         </div>
 
         <input //+버튼을 누르면 나오는 사진 첨부컨텐츠

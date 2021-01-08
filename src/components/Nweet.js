@@ -1,7 +1,11 @@
 import { dbService, storageService } from "fbase";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrash,
+  faPencilAlt,
+  faListAlt,
+} from "@fortawesome/free-solid-svg-icons";
 const Nweet = ({ nweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
   const [newNweet, setNewNweet] = useState(nweetObj.text);
@@ -52,6 +56,13 @@ const Nweet = ({ nweetObj, isOwner }) => {
         </>
       ) : (
         <>
+          <div className="nweetList">
+            <span className="nweet-Tweet-list">내가 작성한 트윗목록</span>
+            <i>
+              <FontAwesomeIcon icon={faListAlt} />
+            </i>
+          </div>
+
           <div className="nweet-creation-screen">
             <div className="nweet-creation-screen_userAndProfile">
               <img
