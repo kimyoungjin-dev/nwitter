@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 export default ({ refreshUser, userObj }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
-  const [newPhotoURL, setNewPhotoURL] = useState(userObj.photoURL);
   const onLogOutClick = () => {
     authService.signOut();
     history.push("/");
@@ -27,16 +26,12 @@ export default ({ refreshUser, userObj }) => {
       });
       refreshUser();
     }
-    if (userObj.photoURL !== newPhotoURL) {
-      await userObj.updateProfile({
-        photoURL: newPhotoURL,
-      });
-      refreshUser();
-    }
   };
+
   return (
     <div className="container profile-container">
       <img className="profilePhoto" src={userObj.photoURL} />
+
       <div className="profileModify">
         <span>팔로우</span>
       </div>
