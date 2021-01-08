@@ -9,36 +9,32 @@
   justify-content: center;
   align-items: center;
 }
+
 /* nav-var */
+
 .auth-nav-var {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  font-size: 12px;
-  padding: 0 80px;
+  width: 70%;
+  margin-bottom: 30px;
 }
+
 .auth-nav-var-left {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .auth-nav-var-left span {
-  margin-left: 5px;
-}
-.auth-nav-var-center {
-  margin-top: 20px;
-  padding: 5px;
+  margin-left: 10px;
 }
 .auth-nav-var-left-right {
   display: flex;
-  font-weight: 700;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.3);
 }
 .auth-nav-var-left-right div:first-child {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 /* AuthForm (로그인계정)*/
@@ -80,7 +76,7 @@
   color: black;
   cursor: pointer;
   margin-top: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   display: block;
   font-size: 12px;
   text-decoration: underline;
@@ -94,6 +90,10 @@
   color: rgba(0, 0, 0, 0.5);
   justify-content: space-between;
   align-items: center;
+}
+.authForm-find span:first-child {
+  color: black;
+  opacity: 0.8;
 }
 .authBtns {
   display: flex;

@@ -9,7 +9,6 @@ const Navigation = ({ userObj }) => (
       <li className="navigation-li">
         <Link to="/profile">
           <div>
-            <img src={userObj.photoURL} />
             <span>
               {userObj.displayName ? `${userObj.displayName}` : "Profile"}
             </span>
@@ -18,7 +17,7 @@ const Navigation = ({ userObj }) => (
       </li>
       <li>
         <Link to="/">
-          <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="3x" />
+          <img src={userObj.photoURL} />
         </Link>
       </li>
     </ul>
