@@ -1,0 +1,28 @@
+.navigation-ul {
+  background-color: rgb(116, 202, 254);
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  font-size: 10px;
+}
+#nav-fatwitter-icon {
+  color: white;
+  font-size: 25px;
+}
+
+.navigation-li:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.navigation-li:first-child span {
+  margin-left: 5px;
+}
+
+.navigation-ul li:nth-child(2) img {
+  width: 40px;
+  border-radius: 100%;
+}

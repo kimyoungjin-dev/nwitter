@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { authService } from "fbase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { fachecksquare } from "@fortawesome/free-solid-svg-icons";
-
+import { faCheckSquare, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 const AuthForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -57,6 +56,10 @@ const AuthForm = () => {
           value={password}
           onChange={onChange}
         />
+        <div className-="auth-save-account">
+          <FontAwesomeIcon icon={faCheckSquare} />
+          <span className="auth-save-account">트위터계정 저장</span>
+        </div>
         <input
           className="authInput authSubmit"
           type="submit"
@@ -65,6 +68,7 @@ const AuthForm = () => {
         <div className="error_message">{error}</div>
         <span className="authError"></span>
       </form>
+
       <span onClick={toggleAccount} className="authSwitch">
         {newAccount ? "Sign In" : "Create Account"}
       </span>

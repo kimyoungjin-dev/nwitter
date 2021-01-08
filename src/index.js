@@ -7,6 +7,7 @@ import "./auth.css";
 import "./navigation.css";
 import "./nweet.css";
 import "./profile.css";
+import "./nweetfactory.css";
 
 ReactDOM.render(
   <React.StrictMode>

@@ -34,14 +34,7 @@ const Auth = () => {
           />
           <span>Twitter 로그인</span>
         </div>
-        <div className="auth-nav-var-center">
-          <FontAwesomeIcon
-            className="auth-faTwitter"
-            icon={faTwitter}
-            color={"#04AAFF"}
-            size="3x"
-          />
-        </div>
+
         <div className="auth-nav-var-left-right">
           <div>
             <Link to="/">도움말</Link>

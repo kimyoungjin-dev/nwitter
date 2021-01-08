@@ -16,8 +16,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 70%;
+  width: 100%;
   margin-bottom: 30px;
+  padding: 30px;
 }
 
 .auth-nav-var-left {
@@ -28,6 +29,7 @@
 .auth-nav-var-left span {
   margin-left: 10px;
 }
+
 .auth-nav-var-left-right {
   display: flex;
   font-weight: 600;
@@ -51,6 +53,9 @@
   font-size: 14px;
   color: black;
 }
+.auth-save-account {
+  margin-right: 170px;
+}
 
 .authSubmit {
   text-align: center;
@@ -63,7 +68,6 @@
 .authContainer input {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-
 .error_message {
   margin-top: 10px;
   color: tomato;
