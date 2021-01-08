@@ -2,7 +2,6 @@ import { dbService, storageService } from "fbase";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-import { faListAlt } from "@fortawesome/free-regular-svg-icons";
 const Nweet = ({ nweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
   const [newNweet, setNewNweet] = useState(nweetObj.text);
@@ -29,7 +28,7 @@ const Nweet = ({ nweetObj, isOwner }) => {
     <div className="nweet">
       {editing ? (
         <>
-          <form className="container nweetEdit" onSubmit={onSubmit}>
+          <form className="nweetContainer nweetEdit" onSubmit={onSubmit}>
             <input
               className="formInput"
               onChange={onChange}
@@ -53,30 +52,40 @@ const Nweet = ({ nweetObj, isOwner }) => {
         </>
       ) : (
         <>
-          <div className="nweetList">
-            <FontAwesomeIcon icon={faListAlt} />
-            <span className="nweet-Tweet-list">내가 작성한 트윗목록</span>
-          </div>
           <div className="nweet-creation-screen">
-            <img src={nweetObj.photoURL} />
-            <h4>{nweetObj.text}</h4>
-
+            <div className="nweet-creation-screen_userAndProfile">
+              <img
+                className="nweet-creation-screen_profileImg"
+                src={nweetObj.photoURL}
+              />
+              <h4>{nweetObj.displayName}</h4>
+            </div>
+            <h2 className="nweet-creation-screen_email">{nweetObj.email}</h2>
+            {isOwner && (
+              <div className="nweet__actions">
+                <span onClick={onDeleteClick}>
+                  <FontAwesomeIcon icon={faTrash} />
+                </span>
+                <span onClick={toggleEditing}>
+                  <FontAwesomeIcon icon={faPencilAlt} />
+                </span>
+              </div>
+            )}
+            <h4 className="nweet-creation-screen_text">{nweetObj.text}</h4>
             {nweetObj.attachmentUrl && (
-              <img src={nweetObj.attachmentUrl} width="50px" height="50px" />
+              <img
+                className="nweet-creation-screen_attachmentURL"
+                src={nweetObj.attachmentUrl}
+                width="50px"
+                height="50px"
+              />
             )}
           </div>
-          {isOwner && (
-            <div className="nweet__actions">
-              <span onClick={onDeleteClick}>
-                <FontAwesomeIcon icon={faTrash} />
-              </span>
-              <span onClick={toggleEditing}>
-                <FontAwesomeIcon icon={faPencilAlt} />
-              </span>
-            </div>
-          )}
         </>
       )}
+      <div className="no-mobile">
+        <span>크기를 줄이거나 핸드폰으로 접속하세요</span>
+      </div>
     </div>
   );
 };

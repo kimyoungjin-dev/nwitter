@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { authService } from "fbase";
 import { useHistory } from "react-router-dom";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+<i class="far fa-user-circle"></i>;
 export default ({ refreshUser, userObj }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
@@ -25,21 +29,48 @@ export default ({ refreshUser, userObj }) => {
   };
   return (
     <div className="container profile-container">
-      <form className="profileForm" onSubmit={onSubmit}>
-        <span>{userObj.displayName}님 오늘도 행복하신가요?</span>
-        <input
-          className="profileInput"
-          onChange={onChange}
-          type="text"
-          autoFocus
-          placeholder="Display name"
-          value="Change Your Nickname?"
-        />
-        <input className="profileInput2" type="submit" value="Update Profile" />
-      </form>
-      <span className="logOut" className="logOut" onClick={onLogOutClick}>
-        Log Out
+      <img className="profilePhoto" src={userObj.photoURL} />
+      <div className="profileModify">
+        <span>프로필 수정</span>
+      </div>
+      <div className="profile-mainscreen">
+        <form className="profileForm" onSubmit={onSubmit}>
+          <input
+            className="profileInput"
+            onChange={onChange}
+            type="text"
+            autoFocus
+            placeholder="Display name"
+            value="이름을 변경하시겠습니까?"
+          />
+          <input className="profileInput2" type="submit" value="이름변경" />
+        </form>
+
+        <div className="profileChangeBox">
+          <span className="">프로필변경</span>
+          <FontAwesomeIcon icon={faPencilAlt} id="profileChangeBoxIcon" />
+        </div>
+
+        <div className="logOutBox">
+          <span className="logOut" onClick={onLogOutClick}>
+            Log Out
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <div className="profile-centerTile">
+          <span>트윗</span>
+          <span>트윗과 답글</span>
+          <span>미디어</span>
+          <span>마음에 들어요</span>
+        </div>
+      </div>
+      <div className="profile-bottomTitle">여기에 내 트윗이 표시됩니다.</div>
+      <span className="profile-mytweet">
+        <Link to="/">첫 트윗 올리기</Link>
       </span>
+
       <div className="no-mobile">
         <span>크기를 줄이거나 핸드폰으로 접속하세요</span>
       </div>

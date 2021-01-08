@@ -1,8 +1,21 @@
+.Container {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
 .nweet-ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: -80px;
+  width: 300px;
   height: 60px;
   background-color: rgb(15, 15, 15);
   padding: 20px;
@@ -13,11 +26,14 @@
 }
 
 .factoryInput__container {
+  margin-top: 20px;
+  height: 120px;
   text-align: center;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
 }
 
 .factoryInput__input {
-  border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 20px;
   display: flex;
   width: 100%;
@@ -36,51 +52,76 @@
   text-align: center;
   border-radius: 5px;
   margin-top: -20px;
+  margin-right: 8px;
 }
 
 /*내가작성한 트윗목록 title*/
 .nweetList {
   display: flex;
   justify-content: flex-start;
+  margin-top: 40px;
+  margin-bottom: -40px;
 }
 .nweetList span {
   margin-left: 10px;
 }
+/*위에는 신경쓰지말자*/
 
-/*내가작성한 트윗터목록*/
-
+/*작성한 트윗터목록*/
 .nweet-creation-screen {
-  border: 1px solid rgba(8, 8, 8, 0.2);
-  height: 100px;
-  display: flex;
-  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   position: relative;
-  text-align: start;
-}
-.nweet-creation-screen {
+  height: 160px;
   text-align: center;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
 }
-.nweet-creation-screen img:first-child {
+.nweet-creation-screen_userAndProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+}
+.nweet-creation-screen_profileImg {
   width: 40px;
-  margin-top: -90px;
-  margin-left: -10px;
   border-radius: 100%;
 }
-.nweet-creation-screen img:nth-child(3) {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-right: -50px;
+.nweet-creation-screen_userAndProfile h4 {
+  margin-left: 5px;
+  font-weight: 700;
+  font-size: 15px;
+}
+.nweet-creation-screen_email {
+  margin-left: 15px;
+  text-align: center;
+  opacity: 0.2;
+}
+.nweet-creation-screen_text {
+  height: 100px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nweet__actions {
   text-align: end;
-  font-size: 15px;
-  color: black;
+  color: tomato;
+  margin-right: 15px;
+}
+.nweet__actions span:first-child {
+  margin-right: 10px;
+  color: rgb(116, 202, 254);
 }
 
-.nweet__actions span:first-child {
-  margin-right: 20px;
+.nweet-creation-screen_attachmentURL {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  right: 0;
+  bottom: 20px;
 }
 
 /*사진추가하면 display*/
@@ -98,11 +139,13 @@
 .nweet-Tweet-list {
   display: flex;
   margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 .nweetEdit {
   border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
   width: 100%;
-  height: 70px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,14 +153,21 @@
 }
 .nweetEdit-updateAndCancle {
   display: flex;
+
   justify-content: flex-end;
   align-items: center;
-  margin-top: 10px;
+  margin: 10px 0px;
 }
 .nweetEdit-updateAndCancle input {
   padding: 3px;
+  border-radius: 10px;
   margin-right: 10px;
+  background-color: rgb(116, 202, 254);
+  color: white;
 }
 .nweetEdit-cancle {
   padding: 3px;
+  border-radius: 10px;
+  background-color: tomato;
+  color: white;
 }

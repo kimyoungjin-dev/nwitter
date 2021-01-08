@@ -14,6 +14,7 @@ function App() {
           displayName: user.displayName,
           uid: user.uid,
           photoURL: user.photoURL,
+          email: user.email,
           updateProfile: (args) => user.updateProfile(args),
         });
       } else {
@@ -28,6 +29,7 @@ function App() {
       displayName: user.displayName,
       uid: user.uid,
       photoURL: user.photoURL,
+      email: user.email,
       updateProfile: (args) => user.updateProfile(args),
     });
   };

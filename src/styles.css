@@ -43,7 +43,7 @@ form {
 .Loading_message {
   width: 100vw;
   height: 100vh;
-  background-color: skyblue;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;

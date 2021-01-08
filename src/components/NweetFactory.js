@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { storageService, dbService } from "fbase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShopware } from "@fortawesome/free-brands-svg-icons";
+import { faListAlt } from "@fortawesome/free-regular-svg-icons";
 
 import {
   faPlus,
@@ -35,6 +36,8 @@ const NweetFactory = ({ userObj }) => {
       creatorId: userObj.uid,
       attachmentUrl,
       photoURL: userObj.photoURL,
+      email: userObj.email,
+      displayName: userObj.displayName,
     };
     await dbService.collection("nweets").add(nweetObj);
     setNweet("");
@@ -91,13 +94,18 @@ const NweetFactory = ({ userObj }) => {
           />
         </div>
         <div className="nweetfactory-imgAndPhoto">
-          <label for="attach-file">
+          <label htmlFor="attach-file">
             <span>사진추가하기</span>
             <FontAwesomeIcon icon={faPlus} />
           </label>
-
           <input type="submit" value="트윗" />
         </div>
+
+        <div className="nweetList">
+          <FontAwesomeIcon icon={faListAlt} />
+          <span className="nweet-Tweet-list">내가 작성한 트윗목록</span>
+        </div>
+
         <input //+버튼을 누르면 나오는 사진 첨부컨텐츠
           id="attach-file"
           type="file"

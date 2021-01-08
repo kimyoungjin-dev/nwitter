@@ -16,6 +16,7 @@ const Navigation = ({ userObj }) => (
           />
         </Link>
       </li>
+      <span>{userObj.displayName}</span>
       <li>
         <Link to="/profile">
           <div>
@@ -24,6 +25,9 @@ const Navigation = ({ userObj }) => (
         </Link>
       </li>
     </ul>
+    <div className="no-mobile">
+      <span>크기를 줄이거나 핸드폰으로 접속하세요</span>
+    </div>
   </nav>
 );
 export default Navigation;
