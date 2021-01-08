@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { authService } from "fbase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckSquare, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 const AuthForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,16 +20,11 @@ const AuthForm = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      let data;
       if (newAccount) {
-        data = await authService.createUserWithEmailAndPassword(
-          email,
-          password
-        );
+        await authService.createUserWithEmailAndPassword(email, password);
       } else {
-        data = await authService.signInWithEmailAndPassword(email, password);
+        await authService.signInWithEmailAndPassword(email, password);
       }
-      console.log(data);
     } catch (error) {
       setError(error.message);
     }

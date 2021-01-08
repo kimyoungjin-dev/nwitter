@@ -2,10 +2,17 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { storageService, dbService } from "fbase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faShopware } from "@fortawesome/free-brands-svg-icons";
+
+import {
+  faPlus,
+  faTimes,
+  faHome,
+  faEnvelopeSquare,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+
 const NweetFactory = ({ userObj }) => {
-  console.log(userObj);
   const [nweet, setNweet] = useState("");
   const [attachment, setAttachment] = useState("");
   const onSubmit = async (event) => {
@@ -57,29 +64,44 @@ const NweetFactory = ({ userObj }) => {
   return (
     <>
       <form className="factoryForm" onSubmit={onSubmit}>
-        <span className="factoryFormName">
-          {userObj.displayName}님 오늘 하루는 어떠셨나요?
-        </span>
+        <nav className="nweet-nav">
+          <ul className="nweet-ul">
+            <li>
+              <FontAwesomeIcon icon={faHome} />
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faEnvelopeSquare} />
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faShopware} />
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faUser} />
+            </li>
+          </ul>
+        </nav>
         <div className="factoryInput__container">
           <input //nweet입력칸
             className="factoryInput__input"
             value={nweet}
             onChange={onChange}
             type="text"
-            placeholder="트윗을 작성해보세요"
+            placeholder="당신의 트윗을 작성해보세요"
             maxLength={120}
           />
-          <input className="factoryInput__arrow" type="submit" value="확인" />
         </div>
-        <label for="attach-file" className="factoryInput__label">
-          <span>Add photos</span>
-          <FontAwesomeIcon icon={faPlus} />
-        </label>
+        <div className="nweetfactory-imgAndPhoto">
+          <label for="attach-file">
+            <span>사진추가하기</span>
+            <FontAwesomeIcon icon={faPlus} />
+          </label>
+
+          <input type="submit" value="트윗" />
+        </div>
         <input //+버튼을 누르면 나오는 사진 첨부컨텐츠
           id="attach-file"
           type="file"
           accept="image/*"
-          ㅈ
           onChange={onFileChange}
           style={{ opacity: 0 }}
         />

@@ -2,7 +2,7 @@ import { dbService, storageService } from "fbase";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-
+import { faListAlt } from "@fortawesome/free-regular-svg-icons";
 const Nweet = ({ nweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
   const [newNweet, setNewNweet] = useState(nweetObj.text);
@@ -39,21 +39,32 @@ const Nweet = ({ nweetObj, isOwner }) => {
               autoFocus
               required
             />
-            <input className="formBtn" type="submit" value="Update Nweet" />
           </form>
-          <span className="formBtn cancelBtn" onClick={toggleEditing}>
-            Cancel
-          </span>
+          <div className="nweetEdit-updateAndCancle">
+            <input
+              className="nweetEdit-update"
+              type="submit"
+              value="Update Nweet"
+            />
+            <span className="nweetEdit-cancle" onClick={toggleEditing}>
+              Cancel
+            </span>
+          </div>
         </>
       ) : (
         <>
-          <h4>{nweetObj.text}</h4>
-          <img src={nweetObj.photoURL} />
-          {nweetObj.attachmentUrl && (
-            <>
+          <div className="nweetList">
+            <FontAwesomeIcon icon={faListAlt} />
+            <span className="nweet-Tweet-list">내가 작성한 트윗목록</span>
+          </div>
+          <div className="nweet-creation-screen">
+            <img src={nweetObj.photoURL} />
+            <h4>{nweetObj.text}</h4>
+
+            {nweetObj.attachmentUrl && (
               <img src={nweetObj.attachmentUrl} width="50px" height="50px" />
-            </>
-          )}
+            )}
+          </div>
           {isOwner && (
             <div className="nweet__actions">
               <span onClick={onDeleteClick}>

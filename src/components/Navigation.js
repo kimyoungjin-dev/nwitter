@@ -15,7 +15,6 @@ const Navigation = ({ userObj }) => (
             color={"#04AAFF"}
           />
         </Link>
-        <span>홈</span>
       </li>
       <li>
         <Link to="/profile">
