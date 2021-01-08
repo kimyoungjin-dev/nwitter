@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { authService } from "fbase";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { fachecksquare } from "@fortawesome/free-solid-svg-icons";
 
 const AuthForm = () => {
   const [email, setEmail] = useState("");

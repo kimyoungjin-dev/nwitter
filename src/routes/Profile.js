@@ -24,34 +24,25 @@ export default ({ refreshUser, userObj }) => {
     }
   };
   return (
-    <div className="container">
-      <form onSubmit={onSubmit} className="profileForm">
-        <span className="profileName">
-          {userObj.displayName}님 오늘도 행복하신가요?
-        </span>
+    <div className="container profile-container">
+      <form className="profileForm" onSubmit={onSubmit}>
+        <span>{userObj.displayName}님 오늘도 행복하신가요?</span>
         <input
+          className="profileInput"
           onChange={onChange}
           type="text"
           autoFocus
           placeholder="Display name"
-          value="닉네임변경"
-          className="formInput"
+          value="Change Your Nickname?"
         />
-        <input
-          type="submit"
-          value="Update Profile"
-          className="formBtn"
-          style={{
-            marginTop: 10,
-          }}
-        />
+        <input className="profileInput2" type="submit" value="Update Profile" />
       </form>
-      <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
+      <span className="logOut" className="logOut" onClick={onLogOutClick}>
         Log Out
       </span>
       <div className="no-mobile">
         <span>크기를 줄이거나 핸드폰으로 접속하세요</span>
-      </div>{" "}
+      </div>
     </div>
   );
 };

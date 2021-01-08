@@ -1,0 +1,40 @@
+.profile-container {
+  height: 400px;
+  width: 320px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-top: -40px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.profileForm span {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.profileForm input {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 275px;
+  border-radius: 20px;
+  height: 50px;
+}
+
+.profileInput2 {
+  background: #04aaff;
+}
+
+.logOut {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 275px;
+  border-radius: 20px;
+  height: 50px;
+  background-color: tomato;
+}

@@ -25,23 +25,37 @@ const Auth = () => {
   return (
     <div className="authContainer">
       <div className="auth-nav-var">
-        <span className="authMainLogoTitle">Twitter 로그인</span>
-        <FontAwesomeIcon
-          className="auth-faTwitter"
-          icon={faTwitter}
-          color={"#04AAFF"}
-          size="2x"
-        />
-        <div className="help-title">
-          <span>
+        <div className="auth-nav-var-left">
+          <FontAwesomeIcon
+            className="auth-faTwitter"
+            icon={faTwitter}
+            color={"#04AAFF"}
+            size="2x"
+          />
+          <span>Twitter 로그인</span>
+        </div>
+        <div className="auth-nav-var-center">
+          <FontAwesomeIcon
+            className="auth-faTwitter"
+            icon={faTwitter}
+            color={"#04AAFF"}
+            size="3x"
+          />
+        </div>
+        <div className="auth-nav-var-left-right">
+          <div>
             <Link to="/">도움말</Link>
-          </span>
-          <span>
+          </div>
+          <div>
             <Link to="/">문의하기</Link>
-          </span>
+          </div>
         </div>
       </div>
       <AuthForm />
+      <div className="authForm-find">
+        <span>회원가입</span>
+        <span>트위터계정찾기 | 비밀번호 재설정</span>
+      </div>
       <div className="authBtns">
         <button onClick={onSocialClick} name="google" className="authBtn">
           Continue with Google <FontAwesomeIcon icon={faGoogle} />
@@ -52,7 +66,7 @@ const Auth = () => {
       </div>
 
       <div className="mobile-check">
-        <Link to="/">모바일에서 트위터 계정을 확인할수있습니다.</Link>
+        <Link to="/">모바일에서 트위터 계정을 확인할 수 있습니다.</Link>
       </div>
 
       <span className="auth-forgetPassword">비밀번호를 잊어버리셨나요?</span>

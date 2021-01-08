@@ -12,6 +12,7 @@ const NweetFactory = ({ userObj }) => {
     if (nweet === "") {
       return;
     }
+
     event.preventDefault();
     let attachmentUrl = "";
     if (attachment !== "") {
@@ -26,6 +27,7 @@ const NweetFactory = ({ userObj }) => {
       createdAt: Date.now(),
       creatorId: userObj.uid,
       attachmentUrl,
+      photoURL: userObj.photoURL,
     };
     await dbService.collection("nweets").add(nweetObj);
     setNweet("");
