@@ -1,23 +1,31 @@
 import React, { useState } from "react";
-import { authService } from "fbase";
+import { authService, storageService } from "fbase";
 import { useHistory } from "react-router-dom";
-import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { faPencilAlt, faCamera } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheckSquare,
+  faTimesCircle,
+} from "@fortawesome/free-regular-svg-icons";
 
+import { Link } from "react-router-dom";
 export default ({ refreshUser, userObj }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
+  const [attachment, setAttachment] = useState();
+
   const onLogOutClick = () => {
     authService.signOut();
     history.push("/");
   };
+
   const onChange = (event) => {
     const {
       target: { value },
     } = event;
     setNewDisplayName(value);
   };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     if (userObj.displayName !== newDisplayName) {
@@ -26,12 +34,85 @@ export default ({ refreshUser, userObj }) => {
       });
       refreshUser();
     }
+    if (userObj.photoURL !== attachment) {
+      await userObj.updateProfile({
+        photoURL: attachment,
+      });
+      refreshUser();
+      setAttachment(null);
+    }
   };
+
+  const onFileChange = (event) => {
+    const {
+      target: { files },
+    } = event;
+    const theFile = files[0];
+    const reader = new FileReader();
+    reader.onloadend = async (finishedEvent) => {
+      const {
+        currentTarget: { result },
+      } = finishedEvent;
+      const attachRef = storageService.ref().child(`${userObj.uid}`);
+      const response = await attachRef.putString(result, "data_url");
+      const attachmentUrl = await response.ref.getDownloadURL();
+      setAttachment(attachmentUrl);
+    };
+    reader.readAsDataURL(theFile);
+  };
+  const onClearAttachment = () => setAttachment("");
 
   return (
     <div className="container profile-container">
-      <img className="profilePhoto" src={userObj.photoURL} />
-
+      <div className="profile-left">
+        <img
+          className="profilePhoto"
+          src={userObj.photoURL}
+          value={userObj.photoURL}
+        />
+        <label htmlFor="attach-file">
+          <FontAwesomeIcon id="attach-file-icon" icon={faCamera} />
+        </label>
+        <input
+          id="attach-file"
+          type="file"
+          onChange={onFileChange}
+          style={{ opacity: 0 }}
+        />
+      </div>
+      <div className="profile-center">
+        {attachment && (
+          <>
+            <div className="profile-attachment">
+              <img src={attachment} width="80px" height="80px" />
+              <div className="profile-checkBox">
+                <div className="profileIconBox">
+                  <form onSubmit={onSubmit}>
+                    <label htmlFor="attach-checkIcon">
+                      <FontAwesomeIcon icon={faCheckSquare} />
+                    </label>
+                    <input
+                      id="attach-checkIcon"
+                      type="submit"
+                      value="변경"
+                      style={{ opacity: 1 }}
+                    />
+                    <label htmlFor="attach-cancleIcon">
+                      <FontAwesomeIcon icon={faTimesCircle} />
+                    </label>
+                    <input
+                      id="attach-cancleIcon"
+                      type="text"
+                      value="취소"
+                      onClick={onClearAttachment}
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
       <div className="profileModify">
         <span>팔로우</span>
       </div>

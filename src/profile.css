@@ -17,8 +17,16 @@
   height: 90px;
   border-radius: 100%;
   left: 0px;
-  top: 10px;
+  top: 0px;
   z-index: 1;
+}
+#attach-file-icon {
+  position: absolute;
+  left: 70px;
+  z-index: 1;
+  top: 70px;
+  font-size: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.8);
 }
 .profile-profile {
   text-align: start;
@@ -30,6 +38,19 @@
   width: 100%;
   text-align: end;
   font-weight: 600;
+}
+.profile-center {
+  position: absolute;
+  top: 0px;
+  right: 40px;
+}
+
+.profileIconBox {
+  display: flex;
+  font-size: 12px;
+}
+#attach-checkIcon {
+  margin: 0px 5px;
 }
 
 .profileModify span {
