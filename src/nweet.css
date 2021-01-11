@@ -1,6 +1,6 @@
 .factoryForm {
+  height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
